@@ -1,4 +1,9 @@
 <?php include('server.php') ?>
+<<<<<<< HEAD:ATM UI/auth.php
+=======
+
+
+>>>>>>> 7b737dcfb43ee556a168b05badce4200a743a4aa:ATM UI/auth.html
 <!DOCTYPE html>
 
 <html>
@@ -27,7 +32,11 @@
     </head>
 
 
+<<<<<<< HEAD:ATM UI/auth.php
     <body style="background:linear-gradient(#ffb6c1,#ADD8E6);">
+=======
+    <body style="background:linear-gradient(#ffb6c1,#ADD8E6);background-attachment:fixed">
+>>>>>>> 7b737dcfb43ee556a168b05badce4200a743a4aa:ATM UI/auth.html
        <!-- auth page code here -->
       
       <div class="x">
@@ -46,9 +55,16 @@
     <p style="font-weight: bold;font-size: 60px;" >Enter Card Number</p>
     </div>
     <div class="mx-auto text-center" >
+<<<<<<< HEAD:ATM UI/auth.php
     <form action="server.php" method="post" >
      
       <?php include('errors.php') ?>
+=======
+    <form action="auth.php" method="post" >
+     
+      <?php include('errors.php') ?>
+      <br>
+>>>>>>> 7b737dcfb43ee556a168b05badce4200a743a4aa:ATM UI/auth.html
      <div class="text-center" style="margin-bottom:20px;">
         <input type="text" id="fname" name="fname" placeholder=" Card Number" ><br>
      </div>

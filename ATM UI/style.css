@@ -41,13 +41,31 @@
 	color: #ffffff;
 }
 
+<<<<<<< HEAD
 .material-icons{
     float: left;
 }
 
+=======
+>>>>>>> 7b737dcfb43ee556a168b05badce4200a743a4aa
 label{
     display: inline-block;
     width: 150px;
     text-align: right;
+<<<<<<< HEAD
 
+=======
+}
+
+.error {
+	width: 60%; 
+	margin: 0px auto; 
+	padding: 10px; 
+	border: 1px solid #a94442; 
+	color: #a94442; 
+	background: #f2dede; 
+	border-radius: 5px; 
+	text-align: center;
+	font-size: medium;
+>>>>>>> 7b737dcfb43ee556a168b05badce4200a743a4aa
 }
