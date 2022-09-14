@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 
-<body style="background-color: aquamarine;">
+<a href="index.html" style="color: #000000;"><i class="material-icons" style="font-size:36px">home</i></a>
+<a href="options.html" style="color: #000000;"><i class="material-icons" style="font-size:36px">list</i>
 <a href="pin.php" style="color: #000000;"><i class="material-icons" style="font-size:30px">arrow_back</i></a>
 
     <div data-include="test.html"></div>
@@ -16,7 +17,6 @@
             <div class="col col-lg-6 text-center">
                 <img src="reset.png" alt="resetpin" style="width:450px;height:480px;">
             </div>
-
             <div class="col col-lg-6 text-center mx-auto">
                 <div class=" text-center" style="margin-top: 70px;">
                     <div class="mx-auto text-center">
@@ -27,25 +27,19 @@
                             <div class="text-center pins" style="margin-bottom:20px;padding-top: 20px">
                                 <label for="fname" style="font-size:18px; font-weight: bold; padding-right:20px">Enter
                                     Old Pin: </label>
-                                <input type="text" id="fname" maxlength="4" name="oldpin" required
-                                    placeholder="           4-Digit PIN"
-                                    style="border-radius:25px;border:1px solid;"><br>
+                                <input type="text" id="fname" maxlength="4" name="oldpin" required placeholder="           4-Digit PIN" style="border-radius:25px;border:1px solid;"><br>
                             </div>
 
                             <div class="text-center pins" style="margin-bottom:20px;">
                                 <label for="fname" style="font-size:18px; font-weight: bold; padding-right:20px">Enter
                                     New Pin: </label>
-                                <input type="text" maxlength="4" id="fname" name="newpin" required
-                                    placeholder="           4-Digit PIN"
-                                    style="border-radius:25px;border:1px solid;"><br>
+                                <input type="text" maxlength="4" id="fname" name="newpin" required placeholder="           4-Digit PIN" style="border-radius:25px;border:1px solid;"><br>
                             </div>
 
                             <div class="text-center pins" style="margin-bottom:20px;">
                                 <label for="fname"
                                     style="font-size:18px; font-weight: bold; padding-right:20px">Re-Enter Pin: </label>
-                                <input type="text" maxlength="4" id="fname" name="repin" required
-                                    placeholder="           4-Digit PIN"
-                                    style="border-radius:25px;border:1px solid;"><br>
+                                <input type="text" maxlength="4" id="fname" name="repin" required placeholder="           4-Digit PIN" style="border-radius:25px;border:1px solid;"><br>
                             </div>
                     </div>
                 </div>

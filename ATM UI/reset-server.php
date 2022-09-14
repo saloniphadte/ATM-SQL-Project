@@ -18,6 +18,12 @@ include("config.php");?>
   if (empty($repin)) {
     array_push($errors, "Re-enter PIN");
   }
+
+//validating pin
+$query = "SELECT * FROM card WHERE pin='$oldpin' AND card_number='$_SESSION[fname]';";
+$results = mysqli_query($db, $query);
+if (mysqli_num_rows($results)==1){
+
   if (count($errors) == 0 && $newpin == $repin) 
   {
     $query = ("UPDATE card SET `pin`= $newpin WHERE `pin`=$oldpin");
@@ -41,7 +47,9 @@ include("config.php");?>
   }
 else {
   array_push($errors, "Entered pins do not match");
-  echo ("");
 }
+} else{
+  array_push($errors, "Old PIN Invalid");
 }
+  }
 ?>
