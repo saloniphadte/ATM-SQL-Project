@@ -1,6 +1,25 @@
 <?php session_start();
 include("config.php");?>
 <?php
+if (array_key_exists('counter', $_SESSION) ? $_SESSION['counter']++ : ($_SESSION['counter'] =1)){
+    
+  
+  if($_SESSION['counter']>3)
+
+  {  $query = "UPDATE 'card' SET `card_stat`=0 WHERE `card_number`=' $_SESSION[fname]';";
+
+     $results = mysqli_query($db, $query);
+
+     if (!$results || mysqli_num_rows($results) == 0) {
+      error_log("Error occurred as customer three attempts were made to transfer funds");
+      header("location: perror.html");
+
+     }
+
+    session_destroy();
+  }
+} 
+
   $errors = array();
   if (isset($_POST['submit'])) 
   {
