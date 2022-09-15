@@ -28,7 +28,7 @@
 
 
     <body style="background:linear-gradient(#D5F7E6, #63DFA8); background-attachment:fixed;">
-       <!-- transfer of funds page code here -->
+       <!--  transfer of funds page code here -->
        <a href="index.html" style="color: #000000;"><i class="material-icons" style="font-size:30px; float: left;">home</i></a>
        <a href="options.html" style="color: #000000;"><i class="material-icons" style="font-size:30px; float: left;">list</i></a>
        <a href="end.html" style="color: #000000;"><i class="material-icons" style="font-size:30px; float: left;">exit_to_app</i></a>
@@ -64,7 +64,7 @@
       </div>
 
         <div class="text-center" style="margin-bottom: 20px;">
-            <input type="submit" value="Submit" name="submit" onclick="return confirm('Are you sure?')" class="rounded-pill btn btn-primary g">
+            <input type="submit" value="Submit" name="submit" class="rounded-pill btn btn-primary g">
         </div>
 
         <div class="text-center" style="margin-bottom: 20px;">
@@ -82,14 +82,5 @@
 
        <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script>
-  function confirmTransaction(delUrl){
-    if(confirm("Are you sure?")){
-      document.location =delUrl;
-    } else{
-      document.location="transfer_error.html";
-    }
-  }
-</script>
     </body>
 </html>

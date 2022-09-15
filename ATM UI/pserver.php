@@ -1,8 +1,48 @@
 <?php 
 session_start();
+if(isset($_POST['pbutton'])){
+
+    array_key_exists('counter', $_SESSION) ? $_SESSION['counter']++ : ($_SESSION['counter'] =1);
+
+    echo $_SESSION['counter'];
+
+    if($_SESSION['counter']>2)
+
+    {
+
+      header("location: index.html");
+
+      session_destroy();
+
+ 
+
+    }
+}
+   
+//form counter
+if(isset($_POST['pbutton'])){
+	array_key_exists('counter', $_SESSION) ? $_SESSION['counter']++ : ($_SESSION['counter'] =1);
+	echo $_SESSION['counter'];
+	if($_SESSION['counter']>2)
+	{
+	  header("location: service.html");
+	  session_destroy();
+  
+	}
+	
+  }
+
+?>
+<?php 
+$host="localhost"; // Host name
+$username="root"; // Mysql username
+$password=""; // Mysql password
+$db_name="abc"; // Database name
+$tbl_name="card"; // Table name
 
 
-include("config.php");
+// Connect to server and select database.
+$db=mysqli_connect("$host", "$username", "$password","$db_name")or die("cannot connect");
 $errors=array();
 
 if (isset($_POST['pbutton'])) {
@@ -17,29 +57,15 @@ if (isset($_POST['pbutton'])) {
   }
   if (count($errors) == 0) {
   //checking for the errors
-    $query = "SELECT * FROM card WHERE pin='$pname' AND card_number='$_SESSION[fname]';";
+    $query = "SELECT * FROM $tbl_name WHERE pin='$pname' AND card_num='$_SESSION[fname]';";
     $results = mysqli_query($db, $query);
 
     // $results = 1 means that one user with the entered Card Number exists
     if (mysqli_num_rows($results) == 1  ) {
-
-
-//checking for expiry
-$query = "SELECT * FROM card WHERE expiry_date >=now() and card_number='$_SESSION[fname]';";
-$eresults = mysqli_query($db,$query);
-if (mysqli_num_rows($eresults) == 1  ) {
-  $_SESSION['success'] = "You have logged in!";
-  header('location: options.html');
-
-}
-else{
-  array_push($errors, "Your card is expired. "); 
-  $squery = "UPDATE card SET `card_status`=3 WHERE `card_number`='$_SESSION[fname]';";
-    
-  $results = mysqli_query($db, $squery);
-
-}
-}
+      // Welcome message
+      $_SESSION['success'] = "You have logged in!";
+      header('location: options.html'); //page on which the user is sent to after logging in
+    }
     else{
       
     array_key_exists('counter', $_SESSION) ? $_SESSION['counter']++ : ($_SESSION['counter'] =1);
@@ -48,7 +74,7 @@ else{
     
       if($_SESSION['counter']>2)
     
-      {  $query = "UPDATE card SET `card_status`=2 WHERE `card_number`='$_SESSION[fname]';";
+      {  $query = "UPDATE $tbl_name SET `card_stat`=0 WHERE `card_num`='$_SESSION[fname]';";
     
          $results = mysqli_query($db, $query);
     

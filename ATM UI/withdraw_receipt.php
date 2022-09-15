@@ -3,17 +3,16 @@
 $host="localhost"; // Host name
 $username="root"; // Mysql username
 $password=""; // Mysql password
-$db_name="atmdb"; // Database name
+$db_name="f_atmdb"; // Database name
 $tbl_name="accounts"; // Table name
 $tb2_name="transactions"; //Table name
-
 
 // Connect to server and select database.
 $db=mysqli_connect("$host", "$username", "$password","$db_name")or die("cannot connect");
 
 session_start();
 
-$select_query="SELECT transaction_id FROM $tb2_name ORDER BY transaction_id DESC LIMIT 1";
+$select_query="SELECT transaction_id FROM $tb2_name WHERE card_number='$_SESSION[fname]';";
 $trans= mysqli_query($db, $select_query) or die(mysqli_error($db));
 
 $t=mysqli_fetch_array(($trans));
@@ -33,8 +32,7 @@ $result= mysqli_query($db, $select_query) or die(mysqli_error($db));
 
 $res=mysqli_fetch_array(($result));
 
-$select_query="SELECT amount FROM $tb2_name ORDER BY transaction_id DESC LIMIT 1";
-
+$select_query="SELECT amount FROM $tb2_name WHERE card_number='$_SESSION[fname]';";
 $resul= mysqli_query($db, $select_query) or die(mysqli_error($db));
 
 $amt=mysqli_fetch_array(($resul));
@@ -95,26 +93,25 @@ $amt=mysqli_fetch_array(($resul));
             </style>
 
             <div class="mx-15 text-center m" >
-            <p style="font-weight: bold;font-size: 50px;" ><u>Withdrawal Receipt</u></p>
+            <p style="font-weight: bold;font-size: 50px;" ><u>RECEIPT</u></p>
             <?php
-                date_default_timezone_set("Asia/Calcutta");
-                $date = $_SESSION['date'];
-                echo '<span style="font-size: 15pt"><b>Date:</b> ' . $date . '   </span>';
+              $currentDate = new DateTime();
+              echo $currentDate>format('Y-m-d H:i:s');
               ?>
             <p style="font-size: 20px;" ><b>ATM Transaction Id:</b>
             <?php echo'<style="font-weight: bold;font-size: 20px;" >'.$t['transaction_id'].'</style>';?></p>
             <p style="font-size: 20px;" ><b>Card Number :</b>
             <?php echo'<style="font-weight: bold;font-size: 20px;" >'.$cardnum['card_number'].'</style>';?></p>
             <p style="font-size: 20px;" ><b>Withdrawn Amount :</b>
-            <?php echo'<style="font-weight: bold;font-size: 20px;" >'.$amt['amount'].'</style>';?></p>  
+            <?php echo'<style="font-weight: bold;font-size: 20px;" >'.$c['amount'].'</style>';?></p>  
             <p style="font-size: 20px;" ><b>Available Balance: </b>
             <?php echo'<style="font-weight: bold;font-size: 20px;" >'.$res['balance'].'</style>';?>
             </div>
-           </div>
+           </div>>
 
-           <div class="text-center " style="margin: 10px 10px;">
+           <div class="text-center " style="margin-bottom: 20px;">
             <a href="collect_receipt.html">
-            <input type="submit" value="Print Recipt" class="rounded-pill btn btn-primary g" >
+            <input type="submit" value="Print Recipt" class="rounded-pill btn btn-primary g">
             </a>
            </div>
           </form>
@@ -133,3 +130,5 @@ $amt=mysqli_fetch_array(($resul));
 
     </body>
 </html>
+
+
